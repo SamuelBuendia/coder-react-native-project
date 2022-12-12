@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
-import { FAMILY } from '../../constants/data/index'
 import { FamilyItem } from '../../components'
 import { styles } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { filterPerson, selectPerson } from '../../store/actions'
 
-const Family = ({ navigation, route }) => {
-  const { categoryId, color } = route.params
-  const filteredProducts = FAMILY.filter(
-    (product) => product.categoryId === categoryId
-  )
+const Family = ({ navigation }) => {
+  const dispatch = useDispatch()
+  const family = useSelector((state) => state.families.selected)
+  const filteredProducts = useSelector((state) => state.family.filteredFamilies)
+
+  useEffect(() => {
+    dispatch(filterPerson(family.id))
+  }, [])
+
   const onSelected = (item) => {
-    navigation.navigate('Person', { title: item.title, productId: item.id })
+    dispatch(selectPerson(item.id))
+    navigation.navigate('Person', { title: item.title })
   }
   const renderItem = ({ item }) => (
-    <FamilyItem item={item} onSelected={onSelected} color={color} />
+    <FamilyItem item={item} onSelected={onSelected} color={family.color} />
   )
   return (
     <FlatList

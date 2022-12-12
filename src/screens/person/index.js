@@ -1,14 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { FAMILY } from '../../constants/data'
 import { styles } from './styles'
 
-const Person = ({ navigation, route }) => {
-  const { productId } = route.params
-
-  const filteredProduct = FAMILY.find((product) => product.id === productId)
-  const { title, price, description, weight } = filteredProduct || {}
+const Person = ({ navigation }) => {
+  const product = useSelector((state) => state.family.selected)
+  const { title, price, description, weight } = product || {}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>

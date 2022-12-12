@@ -1,6 +1,8 @@
 import { useFonts } from 'expo-font'
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
+import { Provider } from 'react-redux'
 import AppNavigator from './navigation'
+import store from './store'
 
 export default function App() {
   const [loaded] = useFonts({
@@ -13,24 +15,21 @@ export default function App() {
 
   if (!loaded) {
     return (
-      <View styles={styles.containerLoad}>
+      <View styles={styles.container}>
         <ActivityIndicator color="#DAC4F7" size="large" />
       </View>
     )
   }
 
   return (
-    <View style={styles.container}>
+    <Provider store={store}>
       <AppNavigator />
-    </View>
+    </Provider>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  containerLoad: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'

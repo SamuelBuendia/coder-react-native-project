@@ -1,16 +1,17 @@
 import React from 'react'
 import { FlatList, SafeAreaView, Text } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import { FamiliesItem } from '../../components'
-import { FAMILIES } from '../../constants/data'
+import { selectFamily } from '../../store/actions'
 import { styles } from './styles'
 
 const Families = ({ navigation, route }) => {
-  const families = FAMILIES
+  const dispatch = useDispatch()
+  const families = useSelector((state) => state.families.families)
   const onSelected = (item) => {
+    dispatch(selectFamily(item.id))
     navigation.navigate('Family', {
-      categoryId: item.id,
-      title: item.title,
-      color: item.color
+      title: item.title
     })
   }
   const renderItem = ({ item }) => (
