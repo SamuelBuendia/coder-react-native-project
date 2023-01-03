@@ -1,16 +1,15 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-
 import { COLORS } from '../constants/themes/colors'
-import { Families, Person, Family, Profile } from '../screens'
+import { Auth } from '../screens'
 import { isIOS } from '../utils'
 
 const Stack = createNativeStackNavigator()
 
-const ShopNavigator = () => {
+const AuthNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Families"
+      initialRouteName="Auth"
       screenOptions={{
         headerStyle: {
           backgroundColor: isIOS
@@ -26,35 +25,14 @@ const ShopNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Families"
-        component={Families}
+        name="Auth"
+        component={Auth}
         options={{
           headerShown: false
         }}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          headerShown: true
-        }}
-      />
-      <Stack.Screen
-        name="Family"
-        component={Family}
-        options={({ route }) => ({
-          title: route.params.title
-        })}
-      />
-      <Stack.Screen
-        name="Person"
-        component={Person}
-        options={({ route }) => ({
-          title: route.params.title
-        })}
       />
     </Stack.Navigator>
   )
 }
 
-export default ShopNavigator
+export default AuthNavigator

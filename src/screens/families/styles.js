@@ -10,13 +10,18 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.backgroundLight,
     marginTop: isAndroid ? StatusBar.currentHeight : 0
   },
+  containerHead: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 25,
+    marginVertical: 20,
+    marginHorizontal: 25
+  },
   title: {
     fontFamily: 'Lato-Bold',
     fontSize: 25,
     color: COLORS.text,
-    marginTop: 25,
-    marginVertical: 20,
-    marginHorizontal: 25
   },
   containerList: {
     flex: 1
