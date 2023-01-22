@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "proyecto-react-native",
+    "name": "Familia Buendía",
     "slug": "proyecto-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.samuelbp.proyectoreactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aafd6c79-1ee7-494b-8d50-d7b6ff37f475"
+      }
     }
   }
 }
