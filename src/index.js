@@ -1,6 +1,7 @@
 import { useFonts } from 'expo-font'
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import { Provider } from 'react-redux'
+import { init } from './db'
 import AppNavigator from './navigation'
 import store from './store'
 
@@ -20,6 +21,15 @@ export default function App() {
       </View>
     )
   }
+
+  init()
+    .then(() => {
+      console.log('Database is ready')
+    })
+    .catch((error) => {
+      console.log('Error initialized Database')
+      console.log(error)
+    })
 
   return (
     <Provider store={store}>

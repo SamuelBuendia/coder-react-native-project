@@ -6,15 +6,15 @@ import { FAMILY } from '../../constants/data'
 import { styles } from './styles'
 
 const Profile = ({ navigation }) => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
 
-  const onImagePicker = (uri) => {
-    setImage(uri);
+  const onImagePicker = (imageUrl) => {
+    setImage(imageUrl);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Este es el perfil</Text>
+      <Text style={styles.title}>Your Profile</Text>
       <ImageSelector onImagePicker={onImagePicker} />
     </View>
   )

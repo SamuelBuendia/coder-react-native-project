@@ -13,5 +13,11 @@ export const styles = StyleSheet.create({
     fontFamily: 'Lato-Bold',
     fontSize: 20,
     color: COLORS.text
-  }
+  },
+  description: {
+    marginVertical: 15
+  },
+  phone: {
+    marginVertical: 15
+  },
 })

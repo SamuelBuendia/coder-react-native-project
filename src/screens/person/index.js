@@ -7,13 +7,13 @@ import { styles } from './styles'
 
 const Person = ({ navigation }) => {
   const product = useSelector((state) => state.family.selected)
-  const { title, price, description, weight } = product || {}
+  const { name, description, doc, tel } = product || {}
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{name}</Text>
       <Text style={styles.description}>{description}</Text>
-      <Text style={styles.weight}>{weight}</Text>
-      <Text style={styles.price}>${price}</Text>
+      <Text style={styles.weight}>Document: {doc}</Text>
+      <Text style={styles.phone}>Phone:{tel}</Text>
     </View>
   )
 }

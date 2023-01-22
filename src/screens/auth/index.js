@@ -88,7 +88,8 @@ const Auth = ({ navigation }) => {
           onChangeText={(text) => onHandleChangeInput(text, 'password')}
         />
         <Button
-          color={COLORS.primaryDark}
+          style={styles.btn}
+          color={COLORS.success}
           title={messageAction}
           onPress={onHandlerSubmit}
           disabled={!formState.isFormValid}

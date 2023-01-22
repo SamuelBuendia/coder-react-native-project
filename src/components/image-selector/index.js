@@ -1,12 +1,12 @@
 import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
 import React, { useState } from "react";
 import { View, Image, Text, Alert, Button } from "react-native";
+import { COLORS } from "../../constants/themes/colors";
 
 import colors from "../../utils/colors";
 import { styles } from "./styles";
 
-const ImageSelector = ({ onImage }) => {
+const ImageSelector = ({ onImagePicker }) => {
   const [pickedUrl, setPickedUrl] = useState(null);
 
   const verifyPermissions = async () => {
@@ -24,23 +24,26 @@ const ImageSelector = ({ onImage }) => {
     if (!isCameraPermission) return;
 
     const image = await ImagePicker.launchCameraAsync({
-      aspect: [16, 9],
+      allowsEditing: true,
+      aspect: [15, 16],
       quality: 0.7,
     });
 
-    setPickedUrl(image.uri);
-    onImage(image.uri);
+    setPickedUrl(image.assets[0].uri);
+    onImagePicker(image.assets[0].uri);
   };
   return (
     <View style={styles.container}>
-      <View style={styles.preview}>
-        {!pickedUrl ? (
-          <Text>No hay imagen seleccionada</Text>
-        ) : (
-          <Image style={styles.image} source={{ uri: pickedUrl }} />
-        )}
+      <View style={styles.box}>
+        <View style={styles.preview}>
+          {!pickedUrl ? (
+            <Text>No Image Selected</Text>
+          ) : (
+            <Image style={styles.image} source={{ uri: pickedUrl }} />
+          )}
+        </View>
+        <Button title="Take Photo" color={COLORS.success} onPress={onHandleTakeImage} />
       </View>
-      <Button title="Tomar foto" color={colors.secondary} onPress={onHandleTakeImage} />
     </View>
   );
 };

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   input: {
-    borderBottomColor: COLORS.primary,
+    borderBottomColor: COLORS.black,
     borderBottomWidth: 1,
     width: '90%',
     fontFamily: 'Lato-Regular',
@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
   helperText: {
     fontSize: 12,
     fontFamily: 'Lato-Regular',
-    color: COLORS.helperText,
+    color: COLORS.red,
   },
 });

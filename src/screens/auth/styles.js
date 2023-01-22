@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     maxWidth: 400,
     padding: 15,
     margin: 15,
-    borderColor: COLORS.primary,
+    borderColor: COLORS.black,
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: COLORS.white,
@@ -32,9 +32,10 @@ export const styles = StyleSheet.create({
   },
   promptButton: {
     width: '100%',
-    backgroundColor: COLORS.secondaryDark,
-    borderColor: COLORS.primary,
+    backgroundColor: COLORS.gray,
+    borderColor: COLORS.white,
     borderWidth: 1,
+    color: COLORS.white,
     padding: 10,
     borderRadius: 5,
     justifyContent: 'center',
@@ -45,9 +46,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
   },
+  btn: {
+    marginTop:50
+  },
   promptMessage: {
     fontSize: 14,
-    color: COLORS.text,
+    color: COLORS.gar,
     fontFamily: 'Lato-Regular',
   },
 });

@@ -47,7 +47,7 @@ const Tabs = () => {
         name="CalendarTab"
         component={CalendarNavigator}
         options={{
-          title: 'Calendar',
+          title: 'Events',
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? 'calendar' : 'calendar-outline'}

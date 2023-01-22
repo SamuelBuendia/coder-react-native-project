@@ -8,5 +8,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  buttonContainer: {
+    width: 200,
+    marginTop: 20
+  },
+  button: {
+    paddingTop: 50,
+    width: 100
   }
 })

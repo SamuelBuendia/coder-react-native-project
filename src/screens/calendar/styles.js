@@ -6,7 +6,18 @@ import { isAndroid } from '../../utils'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    marginTop: 59,
+    marginTop: isAndroid ? StatusBar.currentHeight : 0,
     alignItems: 'center'
+  },
+  title: {
+    marginVertical: 20,
+    fontSize: 20
+  },
+  box: {
+    width: '90%',
+  },
+  calendar: {
+    width: '100%',
   }
 })
